@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     {{-- ロゴ画像 --}}
-    <a href="{{ route('admin.dashboard.index') }}" class="brand-link">
-r23r32
+    <a href="{{ route('admin.dashboard.index') }}" class="brand-link text-center">
+        <span class="brand-text">{{ config('app.name') }}</span>
     </a>
 
     <div class="sidebar">

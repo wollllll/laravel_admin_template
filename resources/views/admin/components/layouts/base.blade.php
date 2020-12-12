@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>@yield('title')</title>
+    <title>{{ config('app.name') }} | @yield('title')</title>
     <meta name="robots" content="noindex">
     @include('admin.components.layouts._meta')
     <link rel="stylesheet" href="{{ vasset('assets/admin/css/app.css') }}">
     @yield('css')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse app">
-<div class="alert alert-center alert-success alert-dismissible" style="display: none">
-</div>
-<div class="wrapper">
+<body class="hold-transition sidebar-mini layout-fixed">
+<div id="app" class="wrapper">
     @include('admin.components.layouts._header')
     @include('admin.components.layouts._sidebar')
 
