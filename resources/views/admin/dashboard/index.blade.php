@@ -10,6 +10,7 @@
     <div class="card">
         @include('admin.components.card-header', ['title' => 'ダッシュボード'])
         <div class="card-body">
+
         </div>
     </div>
 @endsection
