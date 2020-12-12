@@ -1,4 +1,5 @@
-<form action="{{ route('logout') }}" method="post">
-    @csrf
-    <button>logout </button>
-</form>
+@extends('admin.components.layouts.base')
+
+@section('content')
+
+@endsection
