@@ -10,7 +10,7 @@
     <div class="card">
         @include('admin.components.card-header', ['title' => 'アカウント（一覧）'])
         <div class="card-body">
-            @component('admin.components.table')
+            @component('admin.components.table.table')
                 @slot('thead')
                     <tr>
                         <th>1</th>

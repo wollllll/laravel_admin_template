@@ -1,3 +1,14 @@
+##################
+## ダッシュボード
+##################
 admin.dashboard.index:
   title: "ダッシュボード"
   parent: null
+
+##################
+## アカウント一覧
+##################
+admin.users.index:
+  title: "アカウント（一覧）"
+  parent: "admin.dashboard.index"
+
