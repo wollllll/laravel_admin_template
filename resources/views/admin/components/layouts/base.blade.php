@@ -4,7 +4,7 @@
     <title>@yield('title')</title>
     <meta name="robots" content="noindex">
     @include('admin.components.layouts._meta')
-    @include('admin.components.layouts._base-css')
+    <link rel="stylesheet" href="{{ vasset('assets/admin/css/app.css') }}">
     @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed sidebar-collapse app">
@@ -21,6 +21,6 @@
 
     @include('admin.components.layouts._footer')
 </div>
-@include('admin.components.layouts._base-js')
+<script src="{{ vasset('assets/admin/js/app.js') }}"></script>
 </body>
 </html>
