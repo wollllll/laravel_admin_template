@@ -1,0 +1,13 @@
+@import "variables";
+
+.content-wrapper {
+    padding: $space16;
+
+    .card {
+        border-radius: 2px;
+
+        .card-title {
+            margin-bottom: $space0;
+        }
+    }
+}
