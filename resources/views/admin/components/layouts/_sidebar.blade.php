@@ -15,17 +15,17 @@
                 </li>
                 <li class="nav-item menu-is-opening menu-open">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Charts
+                            アカウント管理
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    <ul class="nav nav-treeview" style="display: block;">
+                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>ChartJS</p>
+                            <a href="{{ route('admin.users.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>一覧</p>
                             </a>
                         </li>
                     </ul>
