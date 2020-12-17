@@ -3,8 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\User\UserRepository;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserService
 {
@@ -17,11 +16,10 @@ class UserService
     }
 
     /**
-     * @param array $eagerLoad
-     * @return Builder[]|Collection
+     * @return LengthAwarePaginator
      */
-    public function getAll(array $eagerLoad = []): Collection
+    public function getPaginate(): LengthAwarePaginator
     {
-        return $this->userRepository->getAll($eagerLoad);
+        return $this->userRepository->getPaginate();
     }
 }

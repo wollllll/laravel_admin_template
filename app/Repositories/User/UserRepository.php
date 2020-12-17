@@ -3,8 +3,7 @@
 namespace App\Repositories\User;
 
 use App\Models\User;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserRepository
 {
@@ -21,11 +20,10 @@ class UserRepository
     }
 
     /**
-     * @param array $eagerLoad
-     * @return Builder[]|Collection
+     * @return LengthAwarePaginator
      */
-    public function getAll(array $eagerLoad): Collection
+    public function getPaginate(): LengthAwarePaginator
     {
-        return $this->user->with($eagerLoad)->get();
+        return $this->user->paginate();
     }
 }
