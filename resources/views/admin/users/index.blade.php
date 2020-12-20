@@ -7,10 +7,10 @@
 @endsection
 
 @section('content')
-    <div class="card">
+    <section class="card">
         @include('admin.components.card-header', ['title' => 'アカウント（一覧）'])
         <div class="card-body">
             <users-table></users-table>
         </div>
-    </div>
+    </section>
 @endsection

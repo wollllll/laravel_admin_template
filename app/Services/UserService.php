@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Repositories\User\UserRepository;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class UserService
 {
@@ -16,10 +16,11 @@ class UserService
     }
 
     /**
+     * @param array $inputs
      * @return LengthAwarePaginator
      */
-    public function getPaginate(): LengthAwarePaginator
+    public function getPaginate(array $inputs): LengthAwarePaginator
     {
-        return $this->userRepository->getPaginate();
+        return $this->userRepository->getPaginate($inputs);
     }
 }

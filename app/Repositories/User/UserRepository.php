@@ -2,8 +2,9 @@
 
 namespace App\Repositories\User;
 
+use App\ModelFilters\Admin\User\IndexFilter;
 use App\Models\User;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class UserRepository
 {
@@ -20,10 +21,13 @@ class UserRepository
     }
 
     /**
+     * @param array $inputs
      * @return LengthAwarePaginator
      */
-    public function getPaginate(): LengthAwarePaginator
+    public function getPaginate(array $inputs): LengthAwarePaginator
     {
-        return $this->user->paginate(10);
+        return $this->user
+            ->filter(IndexFilter::indexParams($inputs), IndexFilter::class)
+            ->paginate(10);
     }
 }

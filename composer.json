@@ -51,7 +51,8 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "app/Helpers/urlHelpers.php"
+            "app/Helpers/urlHelpers.php",
+            "app/Helpers/castHelpers.php"
         ]
     },
     "minimum-stability": "dev",
