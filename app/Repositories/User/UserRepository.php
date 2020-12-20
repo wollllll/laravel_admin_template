@@ -24,6 +24,6 @@ class UserRepository
      */
     public function getPaginate(): LengthAwarePaginator
     {
-        return $this->user->paginate();
+        return $this->user->paginate(10);
     }
 }

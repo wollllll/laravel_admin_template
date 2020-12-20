@@ -20,17 +20,17 @@
         </table>
         <nav>
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item" v-for="page in getPages">
+                <li :class="isActive(page)" class="page-item" v-for="page in getPages">
                     <a class="page-link" @click="getUsers(page)">{{ page }}</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
             </ul>
         </nav>
     </div>
 </template>
 
 <script>
+import api from "../../api";
+
 export default {
     data() {
         return {
@@ -43,11 +43,14 @@ export default {
     },
     methods: {
         getUsers(page) {
-            axios.get(`/api/users/get_paginate?page=${page}`)
+            api.getUsers(page)
                 .then(response => {
                     this.paginate = response.data.users
                 })
         },
+        isActive(page) {
+            return page === this.paginate.current_page ? 'active' : ''
+        }
     },
     computed: {
         getPages() {
@@ -59,3 +62,9 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+.page-item {
+    cursor: pointer;
+}
+</style>
