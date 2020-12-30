@@ -2,11 +2,11 @@
     <div>
         <div>
             <div class="row">
-                <div class="col-6 form-group">
+                <div class="col-4 form-group">
                     <label for="name">名前</label>
                     <input v-model="params.name" id="name" class="form-control" name="name">
                 </div>
-                <div class="col-6 form-group">
+                <div class="col-4 form-group">
                     <label for="email">メールアドレス</label>
                     <input v-model="params.email" id="email" class="form-control" name="email">
                 </div>
