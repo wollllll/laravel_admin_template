@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>
+        <form @submit.prevent>
             <div class="row">
                 <div class="col-4 form-group">
                     <label for="name">名前</label>
@@ -12,12 +12,12 @@
                 </div>
             </div>
             <div class="form-group text-center">
-                <button type="button" class="btn btn-primary" @click="searchUsers(1, params)">
+                <button type="submit" class="btn btn-primary" @click="searchUsers(1, params)">
                     検索&nbsp;
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-        </div>
+        </form>
         <table class="table table-bordered">
             <thead class="thead-dark">
             <tr>
@@ -55,9 +55,10 @@ export default {
             paginate: {},
             pages: [],
             params: {
-                name: null,
-                email: null
-            }
+                name: '',
+                email: ''
+            },
+            searchButton: '検索'
         }
     },
     created() {
@@ -71,11 +72,7 @@ export default {
                 })
         },
         searchUsers(page, params) {
-            this.getUsers(page, params);
-            this.$nextTick(() => {
-                this.params.name = null;
-                this.params.email = null;
-            })
+            this.getUsers(page, params)
         },
         isActive(page) {
             return page === this.paginate.current_page ? 'active' : ''

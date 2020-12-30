@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
     {
         $users = [];
 
-        for ($i = 1; $i <= 100; $i++) {
+        for ($i = 1; $i <= 1000; $i++) {
             $users[] = [
                 'email' => 'test+' . $i . '@gmail.com',
                 'password' => Hash::make('a'),
