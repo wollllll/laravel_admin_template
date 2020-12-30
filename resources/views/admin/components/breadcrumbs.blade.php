@@ -1,5 +1,5 @@
 <nav>
-    <ol class="breadcrumb mb-0 py-2 bg-transparent">
+    <ol class="breadcrumb">
         @foreach($pages as $page)
             @if($loop->last)
                 <li class="breadcrumb-item active">{{ Arr::get($page, 'title') }}</li>
