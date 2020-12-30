@@ -85,17 +85,3 @@ if (!function_exists('castForSearchString')) {
         return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
     }
 }
-
-if (!function_exists('castForMiddleMatchString')) {
-
-    /**
-     * 中間一致用文字列に変換
-     *
-     * @param $value
-     * @return string
-     */
-    function castForMiddleMatchString(string $value): string
-    {
-        return castForString('%' . castForSearchString($value) . '%');
-    }
-}

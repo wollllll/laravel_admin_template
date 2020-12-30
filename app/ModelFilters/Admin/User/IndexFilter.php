@@ -13,7 +13,7 @@ class IndexFilter extends ModelFilter
      */
     public function name(string $value): IndexFilter
     {
-        return $this->where('name', 'LIKE', castForMiddleMatchString($value));
+        return $this->whereLike('name', $value);
     }
 
     /**
@@ -22,7 +22,7 @@ class IndexFilter extends ModelFilter
      */
     public function email(string $value): IndexFilter
     {
-        return $this->where('email', 'LIKE', castForMiddleMatchString($value));
+        return $this->whereLike('email', $value);
     }
 
     /**
