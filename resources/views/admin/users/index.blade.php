@@ -10,7 +10,7 @@
     <section class="card">
         @include('admin.components.card-header', ['title' => 'アカウント（一覧）'])
         <div class="card-body">
-            <users-table></users-table>
+            <users-table :first-page-users='@json($users)' action-url="{{ route('admin.users.get') }}"></users-table>
         </div>
     </section>
 @endsection

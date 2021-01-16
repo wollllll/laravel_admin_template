@@ -24,7 +24,7 @@ class UserRepository
      * @param array $inputs
      * @return LengthAwarePaginator
      */
-    public function getPaginate(array $inputs): LengthAwarePaginator
+    public function getUsers(array $inputs): LengthAwarePaginator
     {
         return $this->user
             ->filter(IndexFilter::indexParams($inputs), IndexFilter::class)

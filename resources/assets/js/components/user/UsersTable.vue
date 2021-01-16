@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary" @click="searchUsers(1, params)">
+                <button type="submit" class="btn btn-primary" @click="getUsers(initialPage)">
                     検索&nbsp;
                     <i class="fas fa-search"></i>
                 </button>
@@ -28,7 +28,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr :key="user.id" v-for="user in paginate.data">
+            <tr :key="user.id" v-for="user in users.data">
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
@@ -39,7 +39,7 @@
         <nav>
             <ul class="pagination">
                 <li :class="isActive(page)" class="page-item" v-for="page in getPages">
-                    <a class="page-link" @click="getUsers(page, params)">{{ page }}</a>
+                    <a class="page-link" @click="getUsers(page)">{{ page }}</a>
                 </li>
             </ul>
         </nav>
@@ -50,47 +50,42 @@
 import api from "../../api";
 
 export default {
+    props: {
+        firstPageUsers: Object,
+        actionUrl: String
+    },
     data() {
         return {
-            paginate: {},
+            users: {},
+            initialPage: 1,
             pages: [],
             params: {
                 name: '',
                 email: ''
             },
-            searchButton: '検索'
         }
     },
     created() {
-        this.getUsers(1, this.params)
+        this.users = this.firstPageUsers;
     },
     methods: {
-        getUsers(page, params) {
-            api.getUsers(page, params)
+        getUsers(page) {
+            api.getUsers(this.actionUrl, page, this.params)
                 .then(response => {
-                    this.paginate = response.data.users
+                    this.users = response.data.users
                 })
         },
-        searchUsers(page, params) {
-            this.getUsers(page, params)
-        },
         isActive(page) {
-            return page === this.paginate.current_page ? 'active' : ''
+            return page === this.users.current_page ? 'active' : ''
         }
     },
     computed: {
         getPages() {
-            let start = _.max([this.paginate.current_page - 2, 1])
-            let end = _.min([start + 10, this.paginate.last_page + 1])
+            let start = _.max([this.users.current_page - 2, 1])
+            let end = _.min([start + 10, this.users.last_page + 1])
             start = _.max([end - 10, 1])
             return _.range(start, end)
         }
     }
 }
 </script>
-
-<style lang="scss">
-.page-item {
-    cursor: pointer;
-}
-</style>

@@ -16,6 +16,7 @@ Route::group(['namespace' => 'User'], function () {
     /////////////////////////////////////
     // user
     /////////////////////////////////////
-    Route::resource('users', 'UserController');
+    Route::resource('users', 'UserController', ['only' => ['index']]);
+    Route::get('users/get', 'UserController@getUsers')->name('users.get');
 });
 

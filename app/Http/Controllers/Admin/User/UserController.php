@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Services\UserService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -27,6 +29,19 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        return view('admin.users.index');
+        $users = $this->service->getUsers();
+
+        return view('admin.users.index', compact('users'));
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function getUsers(Request $request): JsonResponse
+    {
+        $users = $this->service->getUsers($request->query());
+
+        return response()->json(['users' => $users]);
     }
 }

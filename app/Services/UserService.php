@@ -10,6 +10,10 @@ class UserService
     /** @var UserRepository  */
     private $userRepository;
 
+    /**
+     * UserService constructor.
+     * @param UserRepository $userRepository
+     */
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
@@ -19,8 +23,8 @@ class UserService
      * @param array $inputs
      * @return LengthAwarePaginator
      */
-    public function getPaginate(array $inputs): LengthAwarePaginator
+    public function getUsers(array $inputs = []): LengthAwarePaginator
     {
-        return $this->userRepository->getPaginate($inputs);
+        return $this->userRepository->getUsers($inputs);
     }
 }

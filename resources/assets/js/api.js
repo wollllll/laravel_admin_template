@@ -1,3 +1,3 @@
 export default {
-    getUsers: async (page, params) => await axios.get(`/api/users/get_paginate?page=${page}`, {params})
+    getUsers: async (url, page, params) => await axios.get(`${url}?page=${page}`, {params})
 }
