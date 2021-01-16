@@ -23,5 +23,17 @@
 }
 
 .btn {
+    border-radius: 2px;
+}
+
+.btn-light {
+    border: 1px solid #dddddd;
+
+    &:hover {
+        background: #dddddd;
+    }
+}
+
+.btn-search {
     width: 200px;
 }

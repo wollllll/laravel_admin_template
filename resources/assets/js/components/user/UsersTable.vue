@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary" @click="getUsers(initialPage)">
+                <button type="submit" class="btn btn-primary btn-search" @click="getUsers(initialPage)">
                     検索&nbsp;
                     <i class="fas fa-search"></i>
                 </button>
@@ -25,14 +25,20 @@
                 <th>名前</th>
                 <th>メールアドレス</th>
                 <th>作成日時</th>
+                <th>機能</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-white">
             <tr :key="user.id" v-for="user in users.data">
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.created_at }}</td>
+                <td>
+                    <a href="" class="btn btn-light">詳細&nbsp;<i class="fas fa-angle-right"></i></a>
+                    <a href="" class="btn btn-light">編集&nbsp;<i class="fas fa-angle-right"></i></a>
+                    <a href="" class="btn btn-danger">削除&nbsp;<i class="fas fa-angle-right"></i></a>
+                </td>
             </tr>
             </tbody>
         </table>
