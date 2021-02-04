@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -34,14 +35,33 @@ class UserController extends Controller
         return view('admin.users.index', compact('users'));
     }
 
-    /**
-     * @param Request $request
-     * @return JsonResponse
-     */
-    public function getUsers(Request $request): JsonResponse
+    public function create()
     {
-        $users = $this->service->getUsers($request->query());
 
-        return response()->json(['users' => $users]);
+    }
+
+    public function store()
+    {
+
+    }
+
+    public function show(User $user)
+    {
+        dd($user);
+    }
+
+    public function edit(User $user)
+    {
+        dd($user);
+    }
+
+    public function update(User $user)
+    {
+        dd($user);
+    }
+
+    public function destroy(User $user)
+    {
+        dd($user);
     }
 }

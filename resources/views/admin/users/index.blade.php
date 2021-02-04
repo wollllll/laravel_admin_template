@@ -8,6 +8,9 @@
 
 @section('content')
     <section>
-        <users-table :first-page-users='@json($users)' action-url="{{ route('admin.users.get') }}"></users-table>
+        <users-table
+            :first-page-users='@json($users)'
+            action-url="{{ route('admin.users.get') }}"
+        ></users-table>
     </section>
 @endsection

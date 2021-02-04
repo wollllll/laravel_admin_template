@@ -36,7 +36,7 @@
                 <td>{{ user.created_at }}</td>
                 <td>
                     <a href="" class="btn btn-light">詳細&nbsp;<i class="fas fa-angle-right"></i></a>
-                    <a href="" class="btn btn-light">編集&nbsp;<i class="fas fa-angle-right"></i></a>
+                    <a :href="`/admin/users/${user.id}/edit`" class="btn btn-light">編集&nbsp;<i class="fas fa-angle-right"></i></a>
                     <a href="" class="btn btn-danger">削除&nbsp;<i class="fas fa-angle-right"></i></a>
                 </td>
             </tr>
@@ -58,7 +58,8 @@ import api from "../../api";
 export default {
     props: {
         firstPageUsers: Object,
-        actionUrl: String
+        actionUrl: String,
+        editUrl: String
     },
     data() {
         return {
@@ -92,6 +93,9 @@ export default {
             start = _.max([end - 10, 1])
             return _.range(start, end)
         }
+    },
+    mounted() {
+        console.log(this.editUrl)
     }
 }
 </script>

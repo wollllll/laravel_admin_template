@@ -3,20 +3,17 @@
 use Illuminate\Support\Facades\Route;
 
 /////////////////////////////////////
-// Admin用ルーティング
+// dashboard
 /////////////////////////////////////
 Route::group(['namespace' => 'Dashboard'], function () {
-    /////////////////////////////////////
-    // dashboard
-    /////////////////////////////////////
     Route::resource('dashboard', 'DashboardController', ['only' => 'index']);
 });
 
+/////////////////////////////////////
+// user
+/////////////////////////////////////
 Route::group(['namespace' => 'User'], function () {
-    /////////////////////////////////////
-    // user
-    /////////////////////////////////////
-    Route::resource('users', 'UserController', ['only' => ['index']]);
-    Route::get('users/get', 'UserController@getUsers')->name('users.get');
+    Route::resource('users', 'UserController', ['except' => ['show']]);
+    Route::get('users/get', 'GetUserController')->name('users.get');
 });
 
