@@ -12,7 +12,7 @@
     @include('admin.components.layouts._header')
     @include('admin.components.layouts._sidebar')
 
-    <main class="content-wrapper main-content">
+    <main class="content-wrapper">
         @include('admin.components.layouts._alert')
         @yield('content')
     </main>

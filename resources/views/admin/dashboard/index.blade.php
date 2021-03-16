@@ -7,9 +7,7 @@
 @endsection
 
 @section('content')
-    <section class="card">
-        @include('admin.components.card.card-header', ['title' => $pageTitle])
-        <div class="card-body">
-        </div>
-    </section>
+    <div>
+
+    </div>
 @endsection

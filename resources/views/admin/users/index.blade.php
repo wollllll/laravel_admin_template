@@ -7,15 +7,12 @@
 @endsection
 
 @section('content')
-    <section>
-        @include('admin.components.card._title', ['title' => $pageTitle])
-        <div class="card">
-            <div class="card-header">
-                <a href="{{ route('admin.users.create') }}" class="btn btn-light">
-                    登録
-                </a>
-            </div>
-            <div class="card-body">
+    <div>
+        @component('admin.components.card.base', ['title' => $pageTitle, 'header' => false, 'footer' => false])
+            @slot('header')
+                <a href="{{ route('admin.users.create') }}" class="btn btn-light">登録</a>
+            @endslot
+            @slot('body')
                 <table class="table table-hover">
                     <thead class="thead-dark">
                     <tr>
@@ -39,11 +36,11 @@
                     @endforeach
                     </tbody>
                 </table>
-            </div>
-        </div>
+            @endslot
+        @endcomponent
         {{--        <users-table--}}
         {{--            :first-page-users='@json($users)'--}}
         {{--            action-url="{{ route('admin.users.get') }}"--}}
         {{--        ></users-table>--}}
-    </section>
+    </div>
 @endsection
