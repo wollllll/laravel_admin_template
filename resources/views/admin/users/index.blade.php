@@ -8,6 +8,7 @@
 
 @section('content')
     <section>
+        @include('admin.components.card._title', ['title' => $pageTitle])
         <div class="card">
             <div class="card-header">
                 <a href="{{ route('admin.users.create') }}" class="btn btn-light">

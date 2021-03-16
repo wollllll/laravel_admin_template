@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="card">
-        @include('admin.components.card-header', ['title' => $pageTitle])
+        @include('admin.components.card.card-header', ['title' => $pageTitle])
         <div class="card-body">
         </div>
     </section>
