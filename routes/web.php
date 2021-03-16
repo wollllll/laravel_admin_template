@@ -11,9 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('admin/dashboard');
-});
-
 Auth::routes();
 

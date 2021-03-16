@@ -13,7 +13,7 @@ Route::group(['namespace' => 'Dashboard'], function () {
 // user
 /////////////////////////////////////
 Route::group(['namespace' => 'User'], function () {
-    Route::resource('users', 'UserController', ['except' => ['show']]);
     Route::get('users/get', 'GetUserController')->name('users.get');
+    Route::resource('users', 'UserController', ['except' => ['show']]);
 });
 

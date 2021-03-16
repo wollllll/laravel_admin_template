@@ -1,6 +1,6 @@
 @extends('admin.components.layouts.base')
 
-@section('title', 'ダッシュボード')
+@section('title', $pageTitle)
 
 @section('breadcrumbs')
     {{ \App\Utils\Breadcrumb::current('admin.components.breadcrumbs') }}
@@ -8,7 +8,7 @@
 
 @section('content')
     <section class="card">
-        @include('admin.components.card-header', ['title' => 'ダッシュボード'])
+        @include('admin.components.card-header', ['title' => $pageTitle])
         <div class="card-body">
         </div>
     </section>

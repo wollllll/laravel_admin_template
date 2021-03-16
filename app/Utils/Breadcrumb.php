@@ -3,6 +3,7 @@
 namespace App\Utils;
 
 use Exception;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
@@ -16,24 +17,18 @@ use Symfony\Component\Yaml\Yaml;
  */
 class Breadcrumb
 {
-    /**
-     * @var self|null
-     */
+    /** @var self */
     public static $instance;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $template;
-    /**
-     * @var array
-     */
+
+    /** @var array|null */
     private $data;
 
     /**
      * Breadcrumb constructor.
      * @param string $template
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     private function __construct(string $template)
     {
@@ -43,10 +38,8 @@ class Breadcrumb
 
     /**
      * singleton
-     *
      * @param string $template
      * @return static
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public static function instance(string $template): self
     {
@@ -61,7 +54,7 @@ class Breadcrumb
      * @param string $template
      * @param array $params
      * @return View
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws Exception
      */
     public static function current(string $template = '', array $params = []): View
     {
@@ -72,7 +65,6 @@ class Breadcrumb
 
     /**
      * HTML出力
-     *
      * @param string $name
      * @param array $params
      * @return View
@@ -87,7 +79,6 @@ class Breadcrumb
 
     /**
      * パンくずリストの生成
-     *
      * @param string $name
      * @param array $params
      * @return array|null
@@ -112,18 +103,16 @@ class Breadcrumb
 
     /**
      * 対象のパンくずを取得
-     *
      * @param string $name
      * @return array
      */
     private function getBreadcrumbsByName(string $name): ?array
     {
-        return Arr::get($this->data, $name, null);
+        return Arr::get($this->data, $name);
     }
 
     /**
      * url生成
-     *
      * @param string $name
      * @param array $params
      * @return string
