@@ -74,6 +74,9 @@ class Breadcrumb
     {
         $pages = $this->breadcrumbData($name, $params);
 
+        // パンくずが設定されていない場合、エラー表示
+        if (empty($pages)) throw new Exception('現在のページにパンくずが設定されていません。');
+
         return view($this->template, compact('pages'));
     }
 

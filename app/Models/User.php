@@ -7,6 +7,7 @@ use EloquentFilter\Filterable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\User
@@ -70,4 +71,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @param string $format
+     * @return string
+     */
+    public function formatCreatedAt(string $format = 'Y-m-d'): string
+    {
+        return $this->created_at->format($format);
+    }
 }

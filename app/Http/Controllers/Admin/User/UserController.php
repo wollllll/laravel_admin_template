@@ -7,8 +7,6 @@ use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -37,7 +35,7 @@ class UserController extends Controller
 
     public function create()
     {
-
+        return view('admin.users.create');
     }
 
     public function store()

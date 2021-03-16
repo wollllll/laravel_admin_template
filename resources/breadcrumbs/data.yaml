@@ -12,3 +12,7 @@ admin.users.index:
   title: "アカウント（一覧）"
   parent: "admin.dashboard.index"
 
+admin.users.create:
+  title: "アカウント（作成）"
+  parent: "admin.users.index"
+

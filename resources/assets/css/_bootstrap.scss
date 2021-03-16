@@ -5,7 +5,8 @@
 }
 
 .card {
-    border-radius: 2px;
+    border-radius: $border-radius;
+    box-shadow: none;
 
     .card-title {
         margin-bottom: $space0;
@@ -19,7 +20,7 @@
 }
 
 .form-control {
-    border-radius: 2px !important;
+    border-radius: $border-radius !important;
 }
 
 .btn {
