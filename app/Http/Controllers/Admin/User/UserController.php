@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\Foundation\Application;
@@ -38,9 +39,9 @@ class UserController extends Controller
         return view('admin.users.create');
     }
 
-    public function store()
+    public function store(StoreRequest $request)
     {
-
+        dd(1);
     }
 
     public function show(User $user)
