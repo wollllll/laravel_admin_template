@@ -18,10 +18,9 @@
                 </button>
             </div>
         </form>
-        <table class="table table-bordered">
+        <table class="table table-hover">
             <thead class="thead-dark">
             <tr>
-                <th>ID</th>
                 <th>名前</th>
                 <th>メールアドレス</th>
                 <th>作成日時</th>
@@ -30,13 +29,13 @@
             </thead>
             <tbody class="bg-white">
             <tr :key="user.id" v-for="user in users.data">
-                <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.created_at }}</td>
                 <td>
                     <a href="" class="btn btn-light">詳細&nbsp;<i class="fas fa-angle-right"></i></a>
-                    <a :href="`/admin/users/${user.id}/edit`" class="btn btn-light">編集&nbsp;<i class="fas fa-angle-right"></i></a>
+                    <a :href="`/admin/users/${user.id}/edit`" class="btn btn-light">編集&nbsp;<i
+                        class="fas fa-angle-right"></i></a>
                     <a href="" class="btn btn-danger">削除&nbsp;<i class="fas fa-angle-right"></i></a>
                 </td>
             </tr>

@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary">
     <a href="{{ route('admin.dashboard.index') }}" class="brand-link text-center">
         <span class="brand-text">{{ config('app.name') }}</span>
     </a>
