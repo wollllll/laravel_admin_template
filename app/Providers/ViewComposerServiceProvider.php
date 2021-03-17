@@ -26,10 +26,6 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('admin.*', function (View $view) {
-            $breadcrumb = Arr::get(Yaml::parse(file_get_contents(resource_path(config('breadcrumbs.file')))), $view->getName());
-
-            $view->with(['pageTitle' => Arr::get($breadcrumb, 'title')]);
-        });
+        //
     }
 }

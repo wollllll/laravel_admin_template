@@ -1,6 +1,6 @@
 @extends('admin.components.layouts.base')
 
-@section('title', $pageTitle)
+@section('title', Breadcrumb::getPageTitle())
 
 @section('breadcrumbs')
     {{ \App\Utils\Breadcrumb::current('admin.components.breadcrumbs') }}
@@ -8,7 +8,7 @@
 
 @section('content')
     <div>
-        @component('admin.components.card.base', ['title' => $pageTitle, 'header' => false, 'footer' => false])
+        @component('admin.components.card.base', ['title' => Breadcrumb::getPageTitle(), 'header' => false, 'footer' => false])
             @slot('body')
                 <form action="{{ route('admin.users.store') }}" method="post">
                     @csrf

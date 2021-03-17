@@ -1,9 +1,9 @@
 @extends('admin.components.layouts.base')
 
-@section('title', $pageTitle)
+@section('title', Breadcrumb::getPageTitle())
 
 @section('breadcrumbs')
-    {{ \App\Utils\Breadcrumb::current('admin.components.breadcrumbs') }}
+    {{ Breadcrumb::current('admin.components.breadcrumbs') }}
 @endsection
 
 @section('content')

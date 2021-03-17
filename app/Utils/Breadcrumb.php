@@ -125,4 +125,20 @@ class Breadcrumb
     {
         return url(Arr::get(parse_url(route($name, $params)), 'path'));
     }
+
+    /**
+     * ルーティングに対応するページタイトルを取得
+     * @param string|null $routeName
+     * @return string
+     */
+    public static function getPageTitle(string $routeName = null): string
+    {
+        if (is_null($routeName)) {
+            $routeName = request()->route()->getName();
+        }
+
+        $breadcrumb = Arr::get(Yaml::parse(file_get_contents(resource_path(config('breadcrumbs.file')))), $routeName);
+
+        return Arr::get($breadcrumb, 'title');
+    }
 }

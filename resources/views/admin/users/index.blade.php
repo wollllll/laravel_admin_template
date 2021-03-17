@@ -1,14 +1,14 @@
 @extends('admin.components.layouts.base')
 
-@section('title', $pageTitle)
+@section('title', Breadcrumb::getPageTitle())
 
 @section('breadcrumbs')
-    {{ \App\Utils\Breadcrumb::current('admin.components.breadcrumbs') }}
+    {{ Breadcrumb::current('admin.components.breadcrumbs') }}
 @endsection
 
 @section('content')
     <div>
-        @component('admin.components.card.base', ['title' => $pageTitle, 'header' => false, 'footer' => false])
+        @component('admin.components.card.base', ['title' => Breadcrumb::getPageTitle(), 'header' => false, 'footer' => false])
             @slot('header')
                 <a href="{{ route('admin.users.create') }}" class="btn btn-light">登録</a>
             @endslot
