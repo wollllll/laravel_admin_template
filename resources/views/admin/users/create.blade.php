@@ -13,9 +13,9 @@
                 <form action="{{ route('admin.users.store') }}" method="post">
                     @csrf
 
-                    @include('admin.components.form.input', ['label' => '名前', 'name' => 'name', 'value' => old('name'), 'required' => true])
-                    @include('admin.components.form.input', ['label' => 'メールアドレス', 'type' => 'email','name' => 'email', 'value' => old('email'), 'required' => true])
-                    @include('admin.components.form.input', ['label' => 'パスワード', 'type' => 'password', 'name' => 'password', 'value' => old('password'), 'required' => true])
+                    @component('admin.components.form.control', ['label' => '名前', 'for' => 'name', 'required' => true])
+                        <input class="form-control" id="name" name="name">
+                    @endcomponent
                     <button>保存</button>
                 </form>
             @endslot
