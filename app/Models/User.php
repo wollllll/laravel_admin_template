@@ -4,10 +4,8 @@ namespace App\Models;
 
 use App\Models\Traits\PropertyAccessor;
 use EloquentFilter\Filterable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Carbon;
 
 /**
  * App\Models\User
@@ -46,38 +44,47 @@ class User extends Authenticatable
     use Notifiable, PropertyAccessor, Filterable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
         'name', 'email', 'password',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
+     * @var string[]
      */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @var string[]
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * @param string $format
-     * @return string
+    /*
+     |-----------------------------------
+     | Relation
+     |-----------------------------------
      */
-    public function formatCreatedAt(string $format = 'Y-m-d'): string
-    {
-        return $this->created_at->format($format);
-    }
+
+    /*
+     |--------------------------------------------------------------------------
+     | Mutator & Accessor
+     |--------------------------------------------------------------------------
+     */
+
+    /*
+     |--------------------------------------------------------------------------
+     | Function
+     |--------------------------------------------------------------------------
+     */
+
+    /*
+     |--------------------------------------------------------------------------
+     | Static Function
+     |--------------------------------------------------------------------------
+     */
 }

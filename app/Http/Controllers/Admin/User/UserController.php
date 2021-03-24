@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $users = $this->service->getUsers();
+        $users = $this->service->getUsersPaginate(['id', 'name', 'email']);
 
         return view('admin.users.index', compact('users'));
     }

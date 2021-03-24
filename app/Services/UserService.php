@@ -7,7 +7,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class UserService
 {
-    /** @var UserRepository  */
+    /** @var UserRepository */
     private $userRepository;
 
     /**
@@ -19,12 +19,23 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
+    /*
+     |--------------------------------------------------------------------------
+     | Get
+     |--------------------------------------------------------------------------
+     */
     /**
-     * @param array $inputs
+     * @param array $select
      * @return LengthAwarePaginator
      */
-    public function getUsers(array $inputs = []): LengthAwarePaginator
+    public function getUsersPaginate(array $select = ['*']): LengthAwarePaginator
     {
-        return $this->userRepository->getUsers($inputs);
+        return $this->userRepository->getUsersPaginate($select);
     }
+
+    /*
+     |--------------------------------------------------------------------------
+     | Create Update Destroy
+     |--------------------------------------------------------------------------
+     */
 }

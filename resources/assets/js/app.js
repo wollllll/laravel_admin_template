@@ -28,11 +28,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import UsersTable from "./components/user/UsersTable";
-
 const app = new Vue({
     el: '#app',
-    components: {
-        'users-table': UsersTable
-    }
+    components: {}
 });

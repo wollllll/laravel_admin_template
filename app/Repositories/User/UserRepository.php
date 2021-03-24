@@ -2,13 +2,13 @@
 
 namespace App\Repositories\User;
 
-use App\ModelFilters\Admin\User\IndexFilter;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 
 class UserRepository
 {
-    /** @var User  */
+    /** @var User */
     private $user;
 
     /**
@@ -20,14 +20,23 @@ class UserRepository
         $this->user = $user;
     }
 
+    /*
+     |--------------------------------------------------------------------------
+     | Get
+     |--------------------------------------------------------------------------
+     */
     /**
-     * @param array $inputs
+     * @param array $select
      * @return LengthAwarePaginator
      */
-    public function getUsers(array $inputs): LengthAwarePaginator
+    public function getUsersPaginate(array $select): LengthAwarePaginator
     {
-        return $this->user
-            ->filter(IndexFilter::indexParams($inputs), IndexFilter::class)
-            ->paginate(10);
+        return $this->user->select($select)->paginate();
     }
+
+    /*
+     |--------------------------------------------------------------------------
+     | Create Update Destroy
+     |--------------------------------------------------------------------------
+     */
 }

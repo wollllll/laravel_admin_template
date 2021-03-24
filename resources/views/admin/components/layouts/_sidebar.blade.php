@@ -29,6 +29,14 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.create') }}" class="nav-link">
+                                <i class="nav-icon fas fa-list"></i>
+                                <p>作成</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>
