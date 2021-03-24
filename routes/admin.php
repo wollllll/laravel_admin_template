@@ -17,6 +17,6 @@ Route::group(['namespace' => 'Dashboard'], function () {
  |--------------------------------------------------------------------------
  */
 Route::group(['namespace' => 'User'], function () {
-    Route::resource('users', 'UserController', ['except' => ['show']]);
+    Route::resource('users', 'UserController');
 });
 

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Repositories\User\UserRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\DB;
 
 class UserService
 {
@@ -25,6 +26,7 @@ class UserService
      |--------------------------------------------------------------------------
      */
     /**
+     * userをpaginateで取得
      * @param array $select
      * @return LengthAwarePaginator
      */
@@ -38,4 +40,22 @@ class UserService
      | Create Update Destroy
      |--------------------------------------------------------------------------
      */
+
+    /**
+     * 保存処理
+     * @param array $inputs
+     */
+    public function store(array $inputs)
+    {
+        try {
+            DB::beginTransaction();
+
+            $this->userRepository->store($inputs);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            abort(500, $e->getMessage());
+        }
+    }
 }

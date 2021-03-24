@@ -16,4 +16,34 @@ trait PropertyAccessor
 
         return $model->getTable();
     }
+
+    /**
+     * fillable取得Trait
+     * @return array|null
+     */
+    public static function columns(): ?array
+    {
+        static $columns;
+
+        if (!empty($columns)) return $columns;
+
+        $model = new static;
+        if (!$model instanceof Model) return null;
+
+        $columns = $model->getFillable();
+
+        return $columns;
+    }
+
+    /**
+     * fillable取得Trait 指定カラムを除いて取得
+     * @param array $except
+     * @return array|null
+     */
+    public static function exceptColumns(array $except): ?array
+    {
+        return array_filter(self::columns(), function ($column) use ($except) {
+            return !in_array($column, $except);
+        });
+    }
 }

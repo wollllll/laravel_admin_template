@@ -26,6 +26,7 @@ class UserRepository
      |--------------------------------------------------------------------------
      */
     /**
+     * userをpaginateで取得
      * @param array $select
      * @return LengthAwarePaginator
      */
@@ -39,4 +40,14 @@ class UserRepository
      | Create Update Destroy
      |--------------------------------------------------------------------------
      */
+
+    /**
+     * 保存処理
+     * @param array $inputs
+     * @return User
+     */
+    public function store(array $inputs): User
+    {
+        return $this->user->create($inputs);
+    }
 }

@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -29,24 +31,37 @@ class UserController extends Controller
      */
     public function index(): View
     {
-        $users = $this->service->getUsersPaginate(['id', 'name', 'email']);
+        $users = $this->service->getUsersPaginate(User::exceptColumns(['id', 'password']));
 
         return view('admin.users.index', compact('users'));
     }
 
-    public function create()
+    /**
+     * @return Application|Factory|View
+     */
+    public function create(): View
     {
         return view('admin.users.create');
     }
 
-    public function store(StoreRequest $request)
+    /**
+     * @param StoreRequest $request
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function store(StoreRequest $request): RedirectResponse
     {
-        dd(1);
+        $this->service->store($request->validated());
+
+        return redirect(route('admin.users.index'));
     }
 
-    public function show(User $user)
+    /**
+     * @param User $user
+     * @return View
+     */
+    public function show(User $user): View
     {
-        dd($user);
+        return view('admin.users.show', compact('user'));
     }
 
     public function edit(User $user)
